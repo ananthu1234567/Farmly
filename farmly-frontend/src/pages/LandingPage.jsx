@@ -1,6 +1,8 @@
 // The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,9 +28,11 @@ const App = () => {
           </nav>
           
           <div className="hidden md:block">
+            <Link to="/auth" className="text-gray-700 hover:text-[#2bd876] transition duration-300 cursor-pointer">
             <button className="bg-[#52df8f] hover:bg-[#2bd876] text-white font-semibold py-2 px-6 rounded-lg transition duration-300 !rounded-button whitespace-nowrap cursor-pointer">
               Sign In
             </button>
+            </Link>
           </div>
           
           <div className="md:hidden">
@@ -46,9 +50,11 @@ const App = () => {
               <a href="#how-it-works" className="text-gray-700 hover:text-[#2bd876] transition duration-300 cursor-pointer">How It Works</a>
               <a href="#about" className="text-gray-700 hover:text-[#2bd876] transition duration-300 cursor-pointer">About</a>
               <a href="#contact" className="text-gray-700 hover:text-[#2bd876] transition duration-300 cursor-pointer">Contact</a>
-              <button className="bg-[#52df8f] hover:bg-[#2bd876] text-white font-semibold py-2 px-6 rounded-lg transition duration-300 !rounded-button whitespace-nowrap cursor-pointer">
+              <Link to="/auth" className="text-gray-700 hover:text-[#2bd876] transition duration-300 cursor-pointer">
+              <button className="bg-[#52df8f] hover:bg-[#2bd876] text-white font-semibold py-2 px-6 rounded-lg transition duration-300 !rounded-button whitespace-nowrap cursor-pointer" >
                 Sign In
               </button>
+              </Link> 
             </div>
           </div>
         )}
@@ -75,9 +81,11 @@ const App = () => {
             <p className="text-xl text-gray-700 mb-8">
               Join Farmly – your trusted marketplace for fresh produce. We bridge the gap between farmers and buyers, creating a sustainable ecosystem for all.
             </p>
+            <Link to="/auth" className="text-gray-700 hover:text-[#2bd876] transition duration-300 cursor-pointer">
             <button className="bg-gradient-to-r from-[#2bd876] to-[#52df8f] hover:from-[#52df8f] hover:to-[#2bd876] text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 !rounded-button whitespace-nowrap cursor-pointer">
               Get Started
             </button>
+            </Link>
           </div>
         </div>
         
@@ -141,7 +149,7 @@ const App = () => {
               </div>
             </div>
             
-            {/* Feature 5 */}
+            {/* Feature 5
             <div className="bg-[#c1f4d7] rounded-xl shadow-md p-6 transition duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
               <div className="text-center mb-4">
                 <div className="text-4xl mb-4">📍</div>
@@ -150,10 +158,10 @@ const App = () => {
                   Connect with local buyers and sellers to reduce transportation costs and environmental impact.
                 </p>
               </div>
-            </div>
+            </div> */}
             
             {/* Feature 6 */}
-            <div className="bg-[#c1f4d7] rounded-xl shadow-md p-6 transition duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
+            {/* <div className="bg-[#c1f4d7] rounded-xl shadow-md p-6 transition duration-300 hover:shadow-lg transform hover:-translate-y-1 cursor-pointer">
               <div className="text-center mb-4">
                 <div className="text-4xl mb-4">🌐</div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Multilingual</h3>
@@ -161,7 +169,7 @@ const App = () => {
                   Break language barriers with our multilingual platform, connecting farmers and buyers globally.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -231,9 +239,7 @@ const App = () => {
               <p className="text-lg text-gray-600 mb-6">
                 We believe in sustainable farming practices and supporting local economies. By facilitating direct connections, we reduce food miles and help build stronger communities.
               </p>
-              <button className="bg-gradient-to-r from-[#2bd876] to-[#52df8f] hover:from-[#52df8f] hover:to-[#2bd876] text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300 !rounded-button whitespace-nowrap cursor-pointer">
-                Learn More
-              </button>
+              
             </div>
             
             <div className="md:w-1/2 overflow-hidden rounded-xl shadow-lg">
@@ -294,9 +300,7 @@ const App = () => {
                 <li><a href="#features" className="text-gray-600 hover:text-[#2bd876] transition duration-300 cursor-pointer">Features</a></li>
                 <li><a href="#how-it-works" className="text-gray-600 hover:text-[#2bd876] transition duration-300 cursor-pointer">How It Works</a></li>
                 <li><a href="#about" className="text-gray-600 hover:text-[#2bd876] transition duration-300 cursor-pointer">About Us</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-[#2bd876] transition duration-300 cursor-pointer">Blog</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-[#2bd876] transition duration-300 cursor-pointer">Terms & Conditions</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-[#2bd876] transition duration-300 cursor-pointer">Privacy Policy</a></li>
+                
               </ul>
             </div>
             
@@ -317,19 +321,7 @@ const App = () => {
                   <span className="text-gray-600">info@farmly.com</span>
                 </li>
               </ul>
-              <div className="mt-6">
-                <h4 className="text-md font-semibold text-gray-800 mb-3">Subscribe to our newsletter</h4>
-                <div className="flex">
-                  <input 
-                    type="email" 
-                    placeholder="Your email" 
-                    className="flex-grow px-4 py-2 rounded-l-lg focus:outline-none border border-[#c1f4d7] text-sm"
-                  />
-                  <button className="bg-[#2bd876] hover:bg-[#52df8f] text-white px-4 py-2 rounded-r-lg transition duration-300 !rounded-button whitespace-nowrap cursor-pointer">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
+              
             </div>
           </div>
           
