@@ -14,6 +14,27 @@ router.get('/users', async (req, res) => {
       res.status(500).json({ message: 'Server error fetching users' });
     }
   });
+
+  router.get('/dashboard/stats', async (req, res) => {
+  try {
+    // Get the total number of farmers, buyers, listings, and orders
+    const totalUsers = await users.countDocuments();
+    // const totalBuyers = await Buyer.countDocuments();
+    const totalProduce = await produce.countDocuments();
+    const totalOrder = await order.countDocuments();
+
+    // Respond with the statistics
+    res.json({
+      totalUsers,
+      totalProduce,
+      totalOrder,
+      // Add any other stats you want to include
+    });
+  } catch (error) {
+    console.error('Error fetching dashboard stats:', error);
+    res.status(500).json({ message: 'Server error fetching dashboard stats' });
+  }
+});
   
 
 
