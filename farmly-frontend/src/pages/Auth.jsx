@@ -67,13 +67,12 @@ const Auth = () => {
       return;
     }
 
-    // Direct login check for admin
+    // Admin direct login
     if (formData.email === ADMIN_EMAIL && formData.password === ADMIN_PASSWORD) {
-      // Admin login
       localStorage.setItem("token", "admin_token");
       localStorage.setItem("user", JSON.stringify({ email: ADMIN_EMAIL, role: "admin" }));
       setSuccess("Admin login successful!");
-      window.location.href = "/admin-dashboard"; // Admin dashboard URL
+      window.location.href = "/admin-dashboard";
       return;
     }
 
@@ -97,19 +96,16 @@ const Auth = () => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setSuccess("Login successful!");
-      
-        // Redirect based on role
+
         const role = res.data.user.role;
         if (role === "farmer") {
           window.location.href = "/farmer-dashboard";
         } else if (role === "buyer") {
           window.location.href = "/buyer-dashboard";
         } else {
-          window.location.href = "/dashboard"; // fallback
+          window.location.href = "/dashboard";
         }
-      }
-      
-      else {
+      } else {
         setSuccess("Signup successful! Please log in.");
         setFormData({
           name: "",
@@ -186,7 +182,7 @@ const Auth = () => {
             </form>
           </div>
 
-          {/* Sign Up Form */}
+          {/* Signup Form */}
           <div className="absolute rotate-y-180 backface-hidden w-full h-full bg-white rounded-2xl shadow-2xl p-8 flex flex-col justify-center">
             <h2 className="text-3xl font-bold text-[#2bd876] mb-6 text-center">Sign Up</h2>
             <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
@@ -236,7 +232,6 @@ const Auth = () => {
                 ))}
               </select>
 
-              {/* Role Selection */}
               <select
                 name="role"
                 value={formData.role}

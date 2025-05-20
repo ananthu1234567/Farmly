@@ -7,6 +7,9 @@ const authRoutes = require("./routes/authRoutes");
 const connectDB = require("./config/db");
 const { sendMessage } = require("./controllers/messageController");
 const adminRoutes = require('./routes/adminRoutes');
+const produceRoutes = require("./routes/produceRoutes");
+const farmerRoutes = require("./routes/farmerRoutes");
+const buyerRoutes = require("./routes/buyerRoutes");// Farmer routes
 
 const app = express();
 const server = http.createServer(app);
@@ -21,6 +24,12 @@ app.use(express.json());
 // ✅ THEN your routes
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes); // Admin routes);
+app.use('/api/farmer', produceRoutes); 
+app.use('/api/farmer', farmerRoutes);
+app.use('/api/buyer', buyerRoutes); // Buyer routes
+ // Farmer routes
+// Produce routes
+// Add other routes as needed
 
 
 // DB Connection
